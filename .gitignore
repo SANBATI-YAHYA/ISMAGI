@@ -1,0 +1,8 @@
+*
+!.gitignore
+!*.c
+!*.C
+!*.cs
+!*.CS
+!LANGAGE_C/
+!LANGAGE_C#/
