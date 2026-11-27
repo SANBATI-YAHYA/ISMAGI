@@ -262,3 +262,99 @@ L'**ensemble des événements** d'une expérience aléatoire d'univers $\Omega$ 
 
 **Exemple :** Pour le lancer d'une pièce ($\Omega = \{\text{P}, \text{F}\}$, donc $n = 2$), l'ensemble des événements contient $2^2 = 4$ événements :
 $$\mathcal{P}(\Omega) = \big\{\varnothing, \; \{\text{P}\}, \; \{\text{F}\}, \; \{\text{P}, \text{F}\}\big\}$$
+## L'ensemble des événements – La tribu
+
+### 1. L'ensemble des événements
+L'**ensemble des événements** est une famille de parties de l'univers $\Omega$.
+
+**Exemple :** Lors du lancer d'un dé cubique équilibré, l'univers des possibles est :
+$$\Omega = \{1, 2, 3, 4, 5, 6\}$$
+
+Voici quelques exemples d'événements :
+* $A = \{2, 4, 6\}$ : obtenir un nombre pair.
+* $B = \{1, 3, 5\}$ : obtenir un nombre impair.
+* $C = \{6\}$ : obtenir le numéro $6$.
+
+---
+
+### 2. Définition d'une tribu
+Une **tribu** (ou $\sigma$-algèbre), notée $\mathcal{A}$, est une famille de parties de $\Omega$ qui vérifie **trois conditions** :
+
+* **Condition 1 : Contient l'univers**
+  $$\Omega \in \mathcal{A}$$
+  L'univers $\Omega$ doit appartenir à la famille $\mathcal{A}$.
+
+* **Condition 2 : Stabilité par complémentaire**
+  $$A \in \mathcal{A} \implies A^c \in \mathcal{A}$$
+  Si un événement $A$ appartient à la tribu, alors son événement contraire (complémentaire) $A^c$ appartient également à la tribu.
+  * **Exemple :** Si $A = \{2, 4, 6\}$, alors son complémentaire dans $\Omega = \{1, 2, 3, 4, 5, 6\}$ est :
+    $$A^c = \{1, 3, 5\}$$
+
+* **Condition 3 : Stabilité par union dénombrable**
+  $$A_1, A_2, A_3, \dots \in \mathcal{A} \implies \bigcup_{i=1}^{+\infty} A_i \in \mathcal{A}$$
+  L'union dénombrable d'événements appartenant à une tribu appartient également à cette tribu.
+
+---
+
+### 3. Exemple d'une tribu
+Soit l'univers :
+$$\Omega = \{1, 2, 3, 4, 5\}$$
+
+Considérons la famille :
+$$\mathcal{A} = \{\varnothing, \Omega\}$$
+
+Cette famille est une tribu (appelée *tribu grossière*) car elle vérifie les trois conditions :
+1. $\Omega \in \mathcal{A}$.
+2. **Stabilité par complémentaire :** $\Omega^c = \varnothing \in \mathcal{A}$ et $\varnothing^c = \Omega \in \mathcal{A}$.
+3. **Stabilité par union dénombrable :** toute union d'éléments de $\{\varnothing, \Omega\}$ reste dans $\{\varnothing, \Omega\}$.
+
+> **À retenir pour l'examen :** Une tribu est une famille de parties de l'univers $\Omega$ qui contient $\Omega$, qui est stable par complémentaire et qui est stable par union dénombrable.
+## 2. Probabilité : Axiomes et propriétés
+
+### 1. Définition d'une probabilité
+Soit $(\Omega, \mathcal{A})$ un espace probabilisable. Une **probabilité** sur $(\Omega, \mathcal{A})$ est une application $P$ qui associe à chaque événement $A \in \mathcal{A}$ un nombre réel compris entre $0$ et $1$ :
+$$P : \mathcal{A} \longrightarrow [0, 1]$$
+
+* $P(A) = 0$ : l'événement $A$ est impossible (ou quasi impossible).
+* $P(A) = 0,5$ : l'événement $A$ a $50\,\%$ de chances de se réaliser.
+* $P(A) = 1$ : l'événement $A$ est certain (ou quasi certain).
+
+---
+
+### 2. Les axiomes d'une probabilité (Axiomes de Kolmogorov)
+Une application $P : \mathcal{A} \to [0, 1]$ est une probabilité si elle vérifie les deux axiomes suivants :
+
+* **Axiome 1 : Probabilité de l'univers**
+  $$P(\Omega) = 1$$
+  La probabilité de l'événement certain est égale à $1$ ($100\,\%$). Lors d'une expérience aléatoire, l'une des issues de $\Omega$ se réalise nécessairement.
+
+* **Axiome 2 : $\sigma$-additivité (Additivité dénombrable)**
+  Pour toute suite d'événements $(A_i)_{i \ge 1}$ de $\mathcal{A}$ **deux à deux incompatibles** (c'est-à-dire $A_i \cap A_j = \varnothing$ pour tout $i \neq j$), la probabilité de leur union est égale à la somme de leurs probabilités :
+  $$P\left(\bigcup_{i=1}^{+\infty} A_i\right) = \sum_{i=1}^{+\infty} P(A_i)$$
+
+**Exemple d'application :**
+On lance un dé cubique équilibré ($\Omega = \{1, 2, 3, 4, 5, 6\}$). Soient les événements $A = \{1\}$ et $B = \{2\}$.
+Comme il est impossible d'obtenir $1$ et $2$ simultanément sur un même lancer, $A$ et $B$ sont incompatibles ($A \cap B = \varnothing$). On a $P(A) = \frac{1}{6}$ et $P(B) = \frac{1}{6}$, d'où :
+$$P(A \cup B) = P(A) + P(B) = \frac{1}{6} + \frac{1}{6} = \frac{2}{6} = \frac{1}{3}$$
+
+---
+
+### 3. Propriétés fondamentales d'une probabilité
+À partir des deux axiomes précédents, on déduit les propriétés suivantes pour tous événements $A, B \in \mathcal{A}$ :
+
+* **Probabilité de l'événement impossible :**
+  $$P(\varnothing) = 0$$
+
+* **Probabilité de l'événement contraire (complémentaire) :**
+  $$P(A^c) = 1 - P(A)$$
+
+* **Additivité finie (cas de deux événements incompatibles) :**
+  Si $A \cap B = \varnothing$, alors :
+  $$P(A \cup B) = P(A) + P(B)$$
+
+* **Formule du crible (cas général de deux événements quelconques) :**
+  $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+* **Croissance de la probabilité :**
+  Si $A \subset B$, alors :
+  $$P(A) \le P(B) \quad \text{et} \quad P(B \setminus A) = P(B) - P(A)$$
